@@ -25,3 +25,10 @@ def longest_consec(strarr, k):
         tmpStr.append(strarr[i])
 
     return ''.join(tmpStr)
+
+
+def longest_consec_optim(strarr, k):
+    if k < 1 or len(strarr) < k or not strarr:
+        return ""
+    return max([''.join(strarr[a:a + k]) for a in range(len(strarr) - k + 1)],
+               key=len)
